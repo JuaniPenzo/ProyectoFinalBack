@@ -35,8 +35,8 @@ routerProduct.post('', async (req, res)=>{
     res.send({ resp: resp });
 })
 
-routerProduct.put('/:id', async (req, res)=>{
-    const idProduct = parseInt(req.params.id);
+routerProduct.put('/:idProduct', async (req, res)=>{
+    const idProduct = parseInt(req.params.idProduct);
     if (idProduct) {
         let { title, description, price, thumbnail, code, stock, category, status } = req.body;
         const newProduct = new Productos(title, description, price, thumbnail, code, stock, category, status);
@@ -47,8 +47,8 @@ routerProduct.put('/:id', async (req, res)=>{
     }
 })
 
-routerProduct.delete('/:id', async (req, res)=>{
-    const idProduct = parseInt(req.params.id);
+routerProduct.delete('/:idProduct', async (req, res)=>{
+    const idProduct = parseInt(req.params.idProduct);
     if (idProduct) {
         let resp = await manager.deleteProduct(idProduct);
         res.send({ resp: resp });

@@ -5,7 +5,7 @@ import {__dirname, __filename} from './path.js'
 import multer from 'multer'
 
 const app = express()
-const PORT = 4000
+const PORT = 8080
 const storage = multer.diskStorage({
     destination: (req, file, cb)=>{
         cb(null, 'src/public/img')

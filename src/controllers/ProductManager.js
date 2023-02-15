@@ -65,7 +65,7 @@ export class ProductManager{
             return `Producto actualizado`
         }
         }
-    async deleteProduct(id){
+    async deleteProduct(idProduct){
         let contenido = await fs.readFile(this.path, 'utf-8')
         let aux = JSON.parse(contenido)
         let productIndex = aux.findIndex(prod => prod.id === idProduct);
@@ -75,7 +75,7 @@ export class ProductManager{
         }
 
         aux.splice(productIndex, 1);
-        await fs.writeFile(this.path, JSON.stringify(products));
+        await fs.writeFile(this.path, JSON.stringify(aux));
         return `Producto eliminado`;
     }
 }
