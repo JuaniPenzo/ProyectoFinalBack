@@ -10,9 +10,9 @@ routerProduct.get('/', async (req, res) => {
     let {limit} = req.query
     if(limit) {
         const productos = data.slice(0, limit)
-        res.send(`Mostrando ${limit} producto/productos: ${JSON.stringify(productos)}}`)
+        res.send(`${JSON.stringify(productos)}}`)
     } else {
-        res.send(`Todos los productos: ${JSON.stringify(data)}}`)
+        res.send(`${JSON.stringify(data)}}`)
     }
 })
 
