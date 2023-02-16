@@ -23,7 +23,29 @@ export class ProductManager{
         let auxExist = aux.find(i=>(i.code === obj.code))
         if (auxExist) {
             return "Producto repetido"
-        } else {
+        }
+        else if(obj.title?.length == 0 || obj.title == undefined){
+            return "Debe agregar un Titulo"
+        }
+        else if(obj.description?.length == 0 || obj.description == undefined){
+            return "Debe agregar una Descripcion"
+        }
+        else if(obj.price?.length == 0 || obj.price == undefined){
+            return "Debe agregar un Precio"
+        }
+        else if(obj.code?.length == 0 || obj.code == undefined){
+            return "Debe agregar un Codigo"
+        }
+        else if(obj.stock?.length == 0 || obj.stock == undefined){
+            return "Debe agregar una cantidad en stock"
+        }
+        else if(obj.category?.length == 0 || obj.category == undefined){
+            return "Debe agregar una categoria"
+        }
+        else if(obj.status == false || obj.status == undefined){
+            return "El status debe ser true"
+        }
+        else {
             aux.push({
                 ...obj,
                 id: lastId + 1
@@ -54,7 +76,27 @@ export class ProductManager{
 
         if(productIndex === -1){
             return console.log("Producto no encontrado")
-            
+        }
+        else if(newProduct.title?.length == 0 || newProduct.title == undefined){
+            return "Debe agregar un Titulo"
+        }
+        else if(newProduct.description?.length == 0 || newProduct.description == undefined){
+            return "Debe agregar una Descripcion"
+        }
+        else if(newProduct.price?.length == 0 || newProduct.price == undefined){
+            return "Debe agregar un Precio"
+        }
+        else if(newProduct.code?.length == 0 || newProduct.code == undefined){
+            return "Debe agregar un Codigo"
+        }
+        else if(newProduct.stock?.length == 0 || newProduct.stock == undefined){
+            return "Debe agregar una cantidad en stock"
+        }
+        else if(newProduct.category?.length == 0 || newProduct.category == undefined){
+            return "Debe agregar una categoria"
+        }
+        else if(newProduct.status == false || newProduct.status == undefined){
+            return "El status debe ser true"
         }
         else{
             aux[productIndex] = {
