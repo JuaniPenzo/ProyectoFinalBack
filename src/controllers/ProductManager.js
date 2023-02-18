@@ -42,9 +42,6 @@ export class ProductManager{
         else if(obj.category?.length == 0 || obj.category == undefined){
             return "Debe agregar una categoria"
         }
-        else if(obj.status == false || obj.status == undefined){
-            return "El status debe ser true"
-        }
         else {
             aux.push({
                 ...obj,

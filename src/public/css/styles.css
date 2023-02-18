@@ -1,0 +1,29 @@
+#header{
+    background-color: rgb(154, 154, 248);
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+#footer{
+    background-color: rgb(167, 167, 235);
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+#realTimeProductsForm{
+    border: 8px, solid black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+#imagenes{
+    height: 300px;
+    width: 300px;
+}
