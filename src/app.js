@@ -22,12 +22,12 @@ io.on("connection", async(socket)=>{
     socket.on("addProduct", async data =>{
       const newProduct = {...data, status:true};
       let mensaje = await productManager.addProduct(newProduct); 
-      socket.emit("mensajeProductoAgregado",mensaje)
+      io.emit("mensajeProductoAgregado",mensaje)
       console.log(mensaje)
     })
     socket.on("deleteProduct", async id=>{
       let mensaje = await productManager.deleteProduct(id)
-      socket.emit("mensajeProductoEliminado",mensaje)
+      io.emit("mensajeProductoEliminado",mensaje)
       console.log(mensaje)
     })
     socket.emit("getProducts",  await productManager.getProduct());
