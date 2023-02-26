@@ -1,7 +1,7 @@
 const socket = io();
 
 const form = document.getElementById("realTimeProductsForm")
-form.addEventListener("submit", (e)=>{
+form?.addEventListener("submit", (e)=>{
     e.preventDefault();
     const title = document.getElementById("formTitle").value
     const description = document.getElementById("formDescription").value
@@ -20,10 +20,14 @@ socket.on("mensajeProductoAgregado",mensaje=>{
 
 socket.on("getProducts", products =>{
     products.forEach(product => {
-        document.getElementById("productsCard").innerHTML+=  
+        const productCard = document.getElementById("productsCard")
+        
+        if(productCard){
+            productCard.innerHTML+=  
         `
         <div>
-        <img src="${product.thumbnail}" alt="Card image cap">
+        <img src="${product.thumbnail}" alt="Card image cap" id="imagenes">
+        </div>
         <div>
             <h5>${product.title}</h5>
             <p>${product.description} </p>
@@ -33,11 +37,12 @@ socket.on("getProducts", products =>{
             <button id="botonProducto${product.id}">Eliminar</button>
         </div>
         `
+        }
     });
 
 
     products.forEach(product=>{
-        document.getElementById(`botonProducto${product.id}`).addEventListener("click",(e)=>{
+        document.getElementById(`botonProducto${product.id}`)?.addEventListener("click",(e)=>{
             socket.emit("deleteProduct", product.id) 
             socket.on("mensajeProductoEliminado",mensaje=>{
                 console.log(mensaje)

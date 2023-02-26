@@ -30,6 +30,7 @@ io.on("connection", async(socket)=>{
       io.emit("mensajeProductoEliminado",mensaje)
       console.log(mensaje)
     })
+
     socket.emit("getProducts",  await productManager.getProduct());
   })
 
@@ -64,6 +65,7 @@ app.post('/upload', upload.single('product'), (req, res)=>{
 
 //HBS
 const products = await productManager.getProduct()
+
 app.get('/', (req, res)=>{
     res.render(
         "home",
